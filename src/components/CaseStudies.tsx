@@ -6,37 +6,40 @@ import { motion, useInView } from "framer-motion";
 const caseStudies = [
     {
         category: "AI Automation",
-        title: "Intelligent Document Processing Pipeline",
-        description:
-            "Reduced manual processing time by 85% for a financial services firm using custom NLP and computer vision models.",
-        metrics: [
-            { label: "Processing Time", value: "-85%" },
-            { label: "Accuracy", value: "99.2%" },
-            { label: "ROI", value: "340%" },
+        title: "A financial services firm was drowning in manual document processing.",
+        challenge: "Their team spent 40+ hours a week manually reviewing, categorizing, and extracting data from financial documents. Errors were common. Scaling was impossible.",
+        solution: "We built a custom NLP + computer vision pipeline that reads, understands, and processes documents autonomously — with human-level accuracy.",
+        results: [
+            { value: "85%", label: "Less processing time" },
+            { value: "99.2%", label: "Accuracy rate" },
+            { value: "340%", label: "ROI in year one" },
         ],
-        gradient: "from-accent/20 via-accent-secondary/10 to-transparent",
+        quote: "Sentienta didn't just automate a process — they fundamentally changed how we operate.",
+        quoteAuthor: "Head of Operations",
     },
     {
         category: "Enterprise Platform",
-        title: "Real-time Analytics Dashboard",
-        description:
-            "Scalable data visualization platform processing 10M+ events daily for a logistics company.",
-        metrics: [
-            { label: "Events/Day", value: "10M+" },
-            { label: "Load Time", value: "<1s" },
+        title: "A logistics company needed to see everything — in real time.",
+        challenge: "10 million events per day across hundreds of endpoints. Their existing dashboard was slow, fragile, and couldn't keep up.",
+        solution: "We designed a scalable real-time analytics platform with sub-second query times, live visualizations, and role-based access for 5,000+ users.",
+        results: [
+            { value: "10M+", label: "Events/day" },
+            { value: "<1s", label: "Load time" },
         ],
-        gradient: "from-accent-secondary/20 via-accent/10 to-transparent",
+        quote: "We went from guessing to knowing. That dashboard changed our business.",
+        quoteAuthor: "VP of Engineering",
     },
     {
         category: "Startup MVP",
-        title: "AI-Powered SaaS Platform",
-        description:
-            "Production-ready AI SaaS from concept to launch in 28 days for an early-stage startup.",
-        metrics: [
-            { label: "Time to Market", value: "28 days" },
-            { label: "MRR Growth", value: "3x" },
+        title: "A founder had 28 days to prove an idea could work.",
+        challenge: "Early-stage startup, limited runway, tough investors. They needed a working AI product — not a prototype, not a mockup — a real product.",
+        solution: "We shipped a production-ready AI SaaS platform in 28 days. Authentication, payments, AI inference, dashboard — everything.",
+        results: [
+            { value: "28 days", label: "To production" },
+            { value: "3x", label: "MRR in 90 days" },
         ],
-        gradient: "from-accent/15 via-accent-secondary/15 to-transparent",
+        quote: "They built our entire product in less time than it took to hire our first engineer.",
+        quoteAuthor: "CEO & Founder",
     },
 ];
 
@@ -55,82 +58,77 @@ export default function CaseStudies() {
                     className="mb-20"
                 >
                     <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
-                        Selected Work
+                        Our Work
                     </span>
-                    <h2 className="text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] text-text-primary mb-5 leading-tight">
-                        Results That<br />
-                        <span className="text-gradient-accent">Speak</span>
+                    <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.03em] text-text-primary mb-5 leading-tight">
+                        Real problems.
+                        <br />
+                        <span className="text-gradient-accent">Real outcomes.</span>
                     </h2>
-                    <p className="text-text-secondary text-lg max-w-lg">
-                        Measurable outcomes from real engagements.
+                    <p className="text-text-secondary text-[17px] leading-relaxed max-w-xl">
+                        We don&apos;t share vanity metrics. Here are stories from clients
+                        whose businesses genuinely changed.
                     </p>
                 </motion.div>
 
-                {/* Featured + Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                    {/* Featured (large) */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 24 }}
-                        animate={inView ? { opacity: 1, y: 0 } : {}}
-                        transition={{ delay: 0.1, duration: 0.5 }}
-                        className="glass-card p-8 lg:p-10 lg:row-span-2 flex flex-col group cursor-pointer"
-                    >
-                        {/* Gradient placeholder image area */}
-                        <div className={`w-full h-48 lg:h-64 rounded-xl mb-8 bg-gradient-to-br ${caseStudies[0].gradient} border border-border-subtle flex items-center justify-center`}>
-                            <div className="w-16 h-16 rounded-2xl bg-accent/20 border border-accent/30 flex items-center justify-center">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-accent">
-                                    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" strokeLinecap="round" strokeLinejoin="round" />
-                                </svg>
-                            </div>
-                        </div>
-
-                        <span className="text-accent text-xs font-semibold tracking-[0.15em] uppercase mb-4">
-                            {caseStudies[0].category}
-                        </span>
-                        <h3 className="text-2xl font-bold text-text-primary mb-3 leading-snug group-hover:text-accent transition-colors duration-300">
-                            {caseStudies[0].title}
-                        </h3>
-                        <p className="text-text-secondary text-sm leading-relaxed mb-8 flex-1">
-                            {caseStudies[0].description}
-                        </p>
-
-                        {/* Metrics */}
-                        <div className="flex gap-6">
-                            {caseStudies[0].metrics.map((m) => (
-                                <div key={m.label}>
-                                    <div className="text-2xl font-bold text-accent mb-1">{m.value}</div>
-                                    <div className="text-text-tertiary text-xs">{m.label}</div>
-                                </div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Smaller cards */}
-                    {caseStudies.slice(1).map((cs, i) => (
+                {/* Case Study Cards — editorial storytelling format */}
+                <div className="space-y-12">
+                    {caseStudies.map((cs, i) => (
                         <motion.div
                             key={cs.title}
                             initial={{ opacity: 0, y: 24 }}
                             animate={inView ? { opacity: 1, y: 0 } : {}}
-                            transition={{ delay: 0.2 + i * 0.1, duration: 0.5 }}
-                            className="glass-card p-7 flex flex-col group cursor-pointer"
+                            transition={{ delay: i * 0.12, duration: 0.5 }}
+                            className="glass-card p-8 md:p-10 group"
                         >
-                            <span className="text-accent text-xs font-semibold tracking-[0.15em] uppercase mb-4">
-                                {cs.category}
-                            </span>
-                            <h3 className="text-lg font-bold text-text-primary mb-2 leading-snug group-hover:text-accent transition-colors duration-300">
-                                {cs.title}
-                            </h3>
-                            <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-1">
-                                {cs.description}
-                            </p>
+                            <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12">
+                                {/* Story (3 cols) */}
+                                <div className="lg:col-span-3">
+                                    <span className="text-accent text-xs font-semibold tracking-[0.15em] uppercase mb-4 block">
+                                        {cs.category}
+                                    </span>
+                                    <h3 className="text-xl md:text-2xl font-bold text-text-primary mb-6 leading-snug">
+                                        {cs.title}
+                                    </h3>
 
-                            <div className="flex gap-5 pt-4 border-t border-border-subtle">
-                                {cs.metrics.map((m) => (
-                                    <div key={m.label}>
-                                        <div className="text-lg font-bold text-accent mb-0.5">{m.value}</div>
-                                        <div className="text-text-tertiary text-[11px]">{m.label}</div>
+                                    <div className="space-y-4 text-text-secondary text-[15px] leading-[1.7]">
+                                        <div>
+                                            <span className="text-text-tertiary text-xs font-semibold tracking-widest uppercase block mb-2">
+                                                The Challenge
+                                            </span>
+                                            <p>{cs.challenge}</p>
+                                        </div>
+                                        <div>
+                                            <span className="text-text-tertiary text-xs font-semibold tracking-widest uppercase block mb-2">
+                                                What We Built
+                                            </span>
+                                            <p>{cs.solution}</p>
+                                        </div>
                                     </div>
-                                ))}
+                                </div>
+
+                                {/* Results + Quote (2 cols) */}
+                                <div className="lg:col-span-2 flex flex-col justify-between">
+                                    {/* Results */}
+                                    <div className="flex flex-wrap gap-6 mb-8">
+                                        {cs.results.map((r) => (
+                                            <div key={r.label}>
+                                                <div className="text-2xl md:text-3xl font-bold text-accent mb-1">{r.value}</div>
+                                                <div className="text-text-tertiary text-xs">{r.label}</div>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    {/* Client quote */}
+                                    <div className="border-l-2 border-accent/30 pl-5">
+                                        <p className="text-text-secondary text-sm italic leading-relaxed mb-2">
+                                            &ldquo;{cs.quote}&rdquo;
+                                        </p>
+                                        <span className="text-text-tertiary text-xs">
+                                            — {cs.quoteAuthor}
+                                        </span>
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}

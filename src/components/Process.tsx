@@ -6,23 +6,27 @@ import { motion, useInView } from "framer-motion";
 const steps = [
     {
         number: "01",
-        title: "Discover",
-        description: "We immerse ourselves in your business context, understand goals, and map the technical landscape.",
+        title: "We Listen First",
+        description:
+            "Before we write a single line of code, we sit down and understand your business — your goals, your users, your constraints. We ask hard questions early so we don't build the wrong thing.",
     },
     {
         number: "02",
-        title: "Design",
-        description: "Architect elegant solutions — from system design to user experience — with precision.",
+        title: "We Design the Right Thing",
+        description:
+            "Architecture before aesthetics. We map out systems, data flows, and user journeys. You'll see exactly what we're building before we build it — no surprises.",
     },
     {
         number: "03",
-        title: "Build",
-        description: "Engineer production-grade software with modern stacks, rigorous testing, and clean code.",
+        title: "We Build with Obsessive Quality",
+        description:
+            "Clean code. Automated testing. Modern infrastructure. We don't cut corners because we know you'll be living with this software. It needs to be maintainable, not just functional.",
     },
     {
         number: "04",
-        title: "Scale",
-        description: "Deploy, optimize, and evolve your solution for sustained growth and peak performance.",
+        title: "We Stay After Launch",
+        description:
+            "Shipping is not the finish line. We monitor, optimize, and iterate with you. Our best client relationships are years long — because we're invested in your success, not just the project.",
     },
 ];
 
@@ -41,12 +45,15 @@ export default function Process() {
                     className="mb-20"
                 >
                     <span className="text-accent text-xs font-semibold tracking-[0.2em] uppercase mb-4 block">
-                        Process
+                        Our Approach
                     </span>
-                    <h2 className="text-[clamp(1.8rem,4vw,3.2rem)] font-bold tracking-[-0.03em] text-text-primary mb-5 leading-tight">
-                        From Vision<br />
-                        <span className="text-gradient-accent">to Velocity</span>
+                    <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-bold tracking-[-0.03em] text-text-primary mb-5 leading-tight">
+                        How we actually work.
                     </h2>
+                    <p className="text-text-secondary text-[17px] leading-relaxed max-w-xl">
+                        No 47-slide decks. No unnecessary meetings. Here&apos;s what working
+                        with us really looks like.
+                    </p>
                 </motion.div>
 
                 {/* Timeline */}
@@ -57,36 +64,32 @@ export default function Process() {
                             initial={{ height: 0 }}
                             animate={inView ? { height: "100%" } : {}}
                             transition={{ duration: 1.5, ease: [0.22, 1, 0.36, 1], delay: 0.3 }}
-                            className="w-full bg-gradient-to-b from-accent/40 via-accent/20 to-transparent"
+                            className="w-full bg-gradient-to-b from-accent/40 via-accent/15 to-transparent"
                         />
                     </div>
 
-                    <div className="space-y-12 lg:space-y-16">
+                    <div className="space-y-14 lg:space-y-16">
                         {steps.map((step, i) => (
                             <motion.div
                                 key={step.number}
-                                initial={{ opacity: 0, x: -20 }}
+                                initial={{ opacity: 0, x: -16 }}
                                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                                transition={{ delay: 0.2 + i * 0.15, duration: 0.5 }}
+                                transition={{ delay: 0.2 + i * 0.12, duration: 0.5 }}
                                 className="flex gap-8 items-start group"
                             >
-                                {/* Number circle */}
+                                {/* Number */}
                                 <div className="relative shrink-0">
                                     <div className="w-14 h-14 rounded-2xl bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 group-hover:border-accent/40 transition-all duration-400">
                                         <span className="text-accent font-bold text-sm">{step.number}</span>
                                     </div>
-                                    {/* Glow dot */}
-                                    <div className="hidden lg:block absolute left-[27px] top-[27px] w-1 h-1">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-accent glow-strong -translate-x-[2px] -translate-y-[2px]" />
-                                    </div>
                                 </div>
 
                                 {/* Content */}
-                                <div className="pt-3">
-                                    <h3 className="text-xl font-bold text-text-primary mb-2 group-hover:text-accent transition-colors duration-300">
+                                <div className="pt-2 pb-2">
+                                    <h3 className="text-lg font-bold text-text-primary mb-3 group-hover:text-accent transition-colors duration-300">
                                         {step.title}
                                     </h3>
-                                    <p className="text-text-secondary text-sm leading-relaxed max-w-md">
+                                    <p className="text-text-secondary text-[15px] leading-[1.8] max-w-lg">
                                         {step.description}
                                     </p>
                                 </div>
