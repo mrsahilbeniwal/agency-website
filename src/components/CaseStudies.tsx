@@ -116,4 +116,26 @@ export default function CaseStudies() {
                         >
                             <span className="text-accent text-xs font-semibold tracking-[0.15em] uppercase mb-4">
                                 {cs.category}
- 
+                            </span>
+                            <h3 className="text-lg font-bold text-text-primary mb-2 leading-snug group-hover:text-accent transition-colors duration-300">
+                                {cs.title}
+                            </h3>
+                            <p className="text-text-secondary text-sm leading-relaxed mb-6 flex-1">
+                                {cs.description}
+                            </p>
+
+                            <div className="flex gap-5 pt-4 border-t border-border-subtle">
+                                {cs.metrics.map((m) => (
+                                    <div key={m.label}>
+                                        <div className="text-lg font-bold text-accent mb-0.5">{m.value}</div>
+                                        <div className="text-text-tertiary text-[11px]">{m.label}</div>
+                                    </div>
+                                ))}
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    );
+}
